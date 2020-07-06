@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2019 PrestaShop and Contributors
+ * 2007-2020 PrestaShop SA and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -19,7 +19,7 @@
  * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA and Contributors
+ * @copyright 2007-2020 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
@@ -44,17 +44,13 @@ final class EditCategoryHandler extends AbstractObjectModelHandler implements Ed
      * {@inheritdoc}
      *
      * @throws CategoryNotFoundException
-     * @throws CannotEditCategoryException
      */
     public function handle(EditCategoryCommand $command)
     {
         $category = new Category($command->getCategoryId()->getValue());
 
         if (!$category->id) {
-            throw new CategoryNotFoundException(
-                $command->getCategoryId(),
-                sprintf('Category with id "%s" cannot be found.', $command->getCategoryId()->getValue())
-            );
+            throw new CategoryNotFoundException($command->getCategoryId(), sprintf('Category with id "%s" cannot be found.', $command->getCategoryId()->getValue()));
         }
 
         $this->updateCategoryFromCommandData($category, $command);
@@ -106,10 +102,6 @@ final class EditCategoryHandler extends AbstractObjectModelHandler implements Ed
             $category->groupBox = $command->getAssociatedGroupIds();
         }
 
-        if ($command->getAssociatedShopIds()) {
-            $this->associateWithShops($category, $command->getAssociatedShopIds());
-        }
-
         if (false === $category->validateFields(false)) {
             throw new CannotEditCategoryException('Invalid data when updating category');
         }
@@ -119,9 +111,11 @@ final class EditCategoryHandler extends AbstractObjectModelHandler implements Ed
         }
 
         if (false === $category->update()) {
-            throw new CannotEditCategoryException(
-                sprintf('Failed to edit Category with id "%s".', $category->id)
-            );
+            throw new CannotEditCategoryException(sprintf('Failed to edit Category with id "%s".', $category->id));
+        }
+
+        if ($command->getAssociatedShopIds()) {
+            $this->associateWithShops($category, $command->getAssociatedShopIds());
         }
     }
 }

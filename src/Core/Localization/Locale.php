@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2019 PrestaShop and Contributors
+ * 2007-2020 PrestaShop SA and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -19,7 +19,7 @@
  * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA and Contributors
+ * @copyright 2007-2020 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
@@ -143,8 +143,7 @@ class Locale implements LocaleInterface
      * @param string $currencyCode
      *                             Currency of the price
      *
-     * @return string
-     *                The formatted price
+     * @return string The formatted price
      *
      * @throws Exception\LocalizationException
      */
@@ -168,9 +167,7 @@ class Locale implements LocaleInterface
         $currencyCode = (string) $currencyCode;
         $priceSpec = $this->priceSpecifications->get($currencyCode);
         if (null === $priceSpec) {
-            throw new LocalizationException(
-                'Price specification not found for currency: "' . $currencyCode . '"'
-            );
+            throw new LocalizationException('Price specification not found for currency: "' . $currencyCode . '"');
         }
 
         return $priceSpec;

@@ -1,5 +1,5 @@
 {**
- * 2007-2019 PrestaShop and Contributors
+ * 2007-2020 PrestaShop SA and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA and Contributors
+ * @copyright 2007-2020 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -59,31 +59,31 @@
 {else}
     var youEditFieldFor = '';
 {/if}
-    var new_order_msg = '{l s='A new order has been placed on your shop.' js=1 d='Admin.Navigation.Header'}';
-    var order_number_msg = '{l s='Order number:' js=1 d='Admin.Navigation.Header'} ';
-    var total_msg = '{l s='Total' js=1 d='Admin.Global'} ';
-    var from_msg = '{l s='From:' js=1 d='Admin.Global'} ';
-    var see_order_msg = '{l s='View this order' js=1 d='Admin.Orderscustomers.Feature'}';
-    var new_customer_msg = '{l s='A new customer registered on your shop.' js=1 d='Admin.Navigation.Header'}';
-    var customer_name_msg = '{l s='registered' js=1 d='Admin.Navigation.Notification'} ';
-    var new_msg = '{l s='A new message was posted on your shop.' js=1 d='Admin.Navigation.Header'}';
-    var see_msg = '{l s='Read this message' js=1 d='Admin.Navigation.Header'}';
-    var token = '{$token|addslashes}';
-    var token_admin_orders = '{getAdminToken tab='AdminOrders'}';
-    var token_admin_customers = '{getAdminToken tab='AdminCustomers'}';
-    var token_admin_customer_threads = '{getAdminToken tab='AdminCustomerThreads'}';
-    var currentIndex = '{$currentIndex|escape:'javascript':'UTF-8'|escape:'quotes'}';
-    var employee_token = '{getAdminToken tab='AdminEmployees'}';
-    var choose_language_translate = '{l s='Choose language:' js=1 d='Admin.Actions'}';
-    var default_language = '{$default_language|intval}';
-    var admin_modules_link = '{$link->getAdminLink("AdminModulesCatalog", true, ['route' => "admin_module_catalog_post"])|addslashes}';
-    var admin_notification_get_link = '{$link->getAdminLink("AdminCommon")|addslashes}';
-    var admin_notification_push_link = '{$link->getAdminLink("AdminCommon", true, ['route' => 'admin_common_notifications_ack'])|addslashes}';
-    var tab_modules_list = '{if isset($tab_modules_list) && $tab_modules_list}{$tab_modules_list|addslashes}{/if}';
-    var update_success_msg = '{l s='Successful update.' js=1 d='Admin.Notifications.Success'}';
-    var errorLogin = '{l s='PrestaShop was unable to log in to Addons. Please check your credentials and your Internet connection.' js=1 d='Admin.Notifications.Warning'}';
-    var search_product_msg = '{l s='Search for a product' js=1 d='Admin.Orderscustomers.Feature'}';
-  </script>
+		var new_order_msg = '{l s='A new order has been placed on your shop.' js=1 d='Admin.Navigation.Header'}';
+		var order_number_msg = '{l s='Order number:' js=1 d='Admin.Navigation.Header'} ';
+		var total_msg = '{l s='Total' js=1 d='Admin.Global'} ';
+		var from_msg = '{l s='From:' js=1 d='Admin.Global'} ';
+		var see_order_msg = '{l s='View this order' js=1 d='Admin.Orderscustomers.Feature'}';
+		var new_customer_msg = '{l s='A new customer registered on your shop.' js=1 d='Admin.Navigation.Header'}';
+        var customer_name_msg = '{l s='registered' js=1 d='Admin.Navigation.Notification'} ';
+		var new_msg = '{l s='A new message was posted on your shop.' js=1 d='Admin.Navigation.Header'}';
+		var see_msg = '{l s='Read this message' js=1 d='Admin.Navigation.Header'}';
+		var token = '{$token|addslashes}';
+		var token_admin_orders = tokenAdminOrders = '{getAdminToken tab='AdminOrders'}';
+		var token_admin_customers = tokenAdminCustomers = '{getAdminToken tab='AdminCustomers'}';
+		var token_admin_customer_threads = tokenAdminCustomerThreads = '{getAdminToken tab='AdminCustomerThreads'}';
+		var currentIndex = '{$currentIndex|escape:'javascript':'UTF-8'|escape:'quotes'}';
+		var employee_token = '{getAdminToken tab='AdminEmployees'}';
+		var choose_language_translate = '{l s='Choose language:' js=1 d='Admin.Actions'}';
+		var default_language = '{$default_language|intval}';
+		var admin_modules_link = '{$link->getAdminLink("AdminModulesCatalog", true, ['route' => "admin_module_catalog_post"])|addslashes}';
+		var admin_notification_get_link = adminNotificationGetLink = '{$link->getAdminLink("AdminCommon")|addslashes}';
+		var admin_notification_push_link = adminNotificationPushLink ='{$link->getAdminLink("AdminCommon", true, ['route' => 'admin_common_notifications_ack'])|addslashes}';
+		var tab_modules_list = '{if isset($tab_modules_list) && $tab_modules_list}{$tab_modules_list|addslashes}{/if}';
+		var update_success_msg = '{l s='Successful update.' js=1 d='Admin.Notifications.Success'}';
+		var errorLogin = '{l s='PrestaShop was unable to log in to Addons. Please check your credentials and your Internet connection.' js=1 d='Admin.Notifications.Warning'}';
+		var search_product_msg = '{l s='Search for a product' js=1 d='Admin.Orderscustomers.Feature'}';
+	</script>
 {/if}
 {if isset($css_files)}
 {foreach from=$css_files key=css_uri item=media}

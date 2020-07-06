@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2019 PrestaShop and Contributors
+ * 2007-2020 PrestaShop SA and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -19,7 +19,7 @@
  * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA and Contributors
+ * @copyright 2007-2020 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
@@ -28,7 +28,7 @@ namespace PrestaShop\PrestaShop\Adapter;
 
 use Context;
 use Controller;
-use Exception;
+use PrestaShop\PrestaShop\Core\Exception\ContainerNotFoundException;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -55,7 +55,7 @@ class ContainerFinder
     /**
      * @return ContainerBuilder|ContainerInterface|null
      *
-     * @throws Exception
+     * @throws ContainerNotFoundException
      */
     public function getContainer()
     {
@@ -74,6 +74,6 @@ class ContainerFinder
             return $container;
         }
 
-        throw new Exception('Kernel Container is not available');
+        throw new ContainerNotFoundException('Kernel Container is not available');
     }
 }

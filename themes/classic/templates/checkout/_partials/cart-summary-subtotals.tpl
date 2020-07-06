@@ -1,5 +1,5 @@
 {**
- * 2007-2019 PrestaShop and Contributors
+ * 2007-2020 PrestaShop SA and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA and Contributors
+ * @copyright 2007-2020 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -26,7 +26,7 @@
 <div class="card-block cart-summary-subtotals-container">
 
   {foreach from=$cart.subtotals item="subtotal"}
-    {if $subtotal.value && $subtotal.type !== 'tax'}
+    {if $subtotal && $subtotal.value|count_characters > 0 && $subtotal.type !== 'tax'}
       <div class="cart-summary-line cart-summary-subtotals" id="cart-subtotal-{$subtotal.type}">
 
         <span class="label">

@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2019 PrestaShop and Contributors
+ * 2007-2020 PrestaShop SA and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -19,7 +19,7 @@
  * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA and Contributors
+ * @copyright 2007-2020 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
@@ -164,17 +164,6 @@ class InstallControllerConsoleProcess extends InstallControllerConsole implement
         foreach (Language::getLanguages() as $lang) {
             Language::updateMultilangTable($lang['iso_code']);
         }
-
-        if ($this->datas->newsletter) {
-            $params = http_build_query(array(
-                'email' => $this->datas->admin_email,
-                'method' => 'addMemberToNewsletter',
-                'language' => $this->datas->lang,
-                'visitorType' => 1,
-                'source' => 'installer',
-            ));
-            Tools::file_get_contents('http://www.prestashop.com/ajax/controller.php?'.$params);
-        }
     }
 
     /**
@@ -256,7 +245,6 @@ class InstallControllerConsoleProcess extends InstallControllerConsole implement
             'admin_password' => $this->datas->admin_password,
             'admin_email' => $this->datas->admin_email,
             'configuration_agrement' => true,
-            'send_informations' => true,
             'enable_ssl' => $this->datas->enable_ssl,
             'rewrite_engine' => $this->datas->rewrite_engine,
         ));
@@ -345,14 +333,8 @@ class InstallControllerConsoleProcess extends InstallControllerConsole implement
     {
         require_once _PS_CORE_DIR_.'/config/bootstrap.php';
 
-        if (defined('_PS_IN_TEST_') && _PS_IN_TEST_) {
-            $env = 'test';
-        } else {
-            $env = _PS_MODE_DEV_ ? 'dev' : 'prod';
-        }
         global $kernel;
-        $kernel = new AppKernel($env, _PS_MODE_DEV_);
-        $kernel->loadClassCache();
+        $kernel = new AppKernel(_PS_ENV_, _PS_MODE_DEV_);
         $kernel->boot();
     }
 }

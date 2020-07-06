@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2019 PrestaShop and Contributors
+ * 2007-2020 PrestaShop SA and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -19,7 +19,7 @@
  * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA and Contributors
+ * @copyright 2007-2020 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
@@ -66,12 +66,12 @@ class AddressControllerCore extends FrontController
         // Submit the address, don't care if it's an edit or add
         if (Tools::isSubmit('submitAddress')) {
             if (!$this->address_form->submit()) {
-                $this->errors[] = $this->trans('Please fix the error below.', array(), 'Shop.Notifications.Error');
+                $this->errors[] = $this->trans('Please fix the error below.', [], 'Shop.Notifications.Error');
             } else {
                 if ($id_address) {
-                    $this->success[] = $this->trans('Address successfully updated!', array(), 'Shop.Notifications.Success');
+                    $this->success[] = $this->trans('Address successfully updated!', [], 'Shop.Notifications.Success');
                 } else {
-                    $this->success[] = $this->trans('Address successfully added!', array(), 'Shop.Notifications.Success');
+                    $this->success[] = $this->trans('Address successfully added!', [], 'Shop.Notifications.Success');
                 }
 
                 $this->should_redirect = true;
@@ -91,10 +91,10 @@ class AddressControllerCore extends FrontController
                 Tools::getValue('token')
             );
             if ($ok) {
-                $this->success[] = $this->trans('Address successfully deleted!', array(), 'Shop.Notifications.Success');
+                $this->success[] = $this->trans('Address successfully deleted!', [], 'Shop.Notifications.Success');
                 $this->should_redirect = true;
             } else {
-                $this->errors[] = $this->trans('Could not delete address.', array(), 'Shop.Notifications.Error');
+                $this->errors[] = $this->trans('Could not delete address.', [], 'Shop.Notifications.Error');
             }
         } else {
             $this->context->smarty->assign('editing', true);
@@ -120,10 +120,10 @@ class AddressControllerCore extends FrontController
         parent::initContent();
         $this->setTemplate(
             'customer/address',
-            array(
+            [
                 'entity' => 'address',
                 'id' => (int) Tools::getValue('id_address'),
-            )
+            ]
         );
     }
 
@@ -134,7 +134,7 @@ class AddressControllerCore extends FrontController
         $breadcrumb['links'][] = $this->addMyAccountToBreadcrumb();
 
         $breadcrumb['links'][] = [
-            'title' => $this->trans('Addresses', array(), 'Shop.Theme.Global'),
+            'title' => $this->trans('Addresses', [], 'Shop.Theme.Global'),
             'url' => $this->context->link->getPageLink('addresses'),
         ];
 
@@ -150,16 +150,16 @@ class AddressControllerCore extends FrontController
         }
 
         if (Tools::getIsset('id_country')) {
-            $addressForm->fillWith(array('id_country' => Tools::getValue('id_country')));
+            $addressForm->fillWith(['id_country' => Tools::getValue('id_country')]);
         }
 
         ob_end_clean();
         header('Content-Type: application/json');
-        $this->ajaxRender(Tools::jsonEncode(array(
+        $this->ajaxRender(Tools::jsonEncode([
             'address_form' => $this->render(
                 'customer/_partials/address-form',
                 $addressForm->getTemplateVariables()
             ),
-        )));
+        ]));
     }
 }

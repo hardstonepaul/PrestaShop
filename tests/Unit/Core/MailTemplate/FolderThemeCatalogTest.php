@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2019 PrestaShop and Contributors
+ * 2007-2020 PrestaShop SA and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -19,15 +19,17 @@
  * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA and Contributors
+ * @copyright 2007-2020 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
 
 namespace Tests\Unit\Core\MailTemplate;
 
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use PrestaShop\PrestaShop\Core\Exception\FileNotFoundException;
+use PrestaShop\PrestaShop\Core\Exception\InvalidArgumentException;
 use PrestaShop\PrestaShop\Core\Hook\HookDispatcherInterface;
 use PrestaShop\PrestaShop\Core\MailTemplate\FolderThemeCatalog;
 use PrestaShop\PrestaShop\Core\MailTemplate\FolderThemeScanner;
@@ -162,12 +164,10 @@ class FolderThemeCatalogTest extends TestCase
         $this->assertEquals('modern', $theme->getName());
     }
 
-    /**
-     * @expectedException \PrestaShop\PrestaShop\Core\Exception\InvalidArgumentException
-     * @expectedExceptionMessage Invalid requested theme "unknown", only available themes are: classic, modern
-     */
     public function testInvalidTheme()
     {
+        $this->expectException(InvalidArgumentException::class, 'Invalid requested theme "unknown", only available themes are: classic, modern');
+
         /** @var HookDispatcherInterface $dispatcherMock */
         $dispatcherMock = $this->getMockBuilder(HookDispatcherInterface::class)
             ->disableOriginalConstructor()
@@ -273,7 +273,7 @@ class FolderThemeCatalogTest extends TestCase
     /**
      * @param int $layoutsCount
      *
-     * @return \PHPUnit_Framework_MockObject_MockObject|HookDispatcherInterface
+     * @return MockObject|HookDispatcherInterface
      */
     private function createHookDispatcherMock($layoutsCount)
     {

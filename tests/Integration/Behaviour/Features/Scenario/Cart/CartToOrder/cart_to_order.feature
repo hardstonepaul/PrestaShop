@@ -28,10 +28,10 @@ Feature: Check cart to order data copy
     When I select address "address1" in my cart
     When I select carrier "carrier1" in my cart
     When I validate my cart using payment module fake
-    Then current cart order total for products should be 20.6 tax included
-    Then current cart order total for products should be 19.81 tax excluded
-    Then current cart order total discount should be 10.3 tax included
-    Then current cart order total discount should be 9.91 tax excluded
+    Then current cart order total for products should be 20.600000 tax included
+    Then current cart order total for products should be 19.810000 tax excluded
+    Then current cart order total discount should be 10.300000 tax included
+    Then current cart order total discount should be 9.910000 tax excluded
     Then current cart order shipping fees should be 7.0 tax included
     Then current cart order shipping fees should be 7.0 tax excluded
     Then current cart order should have a discount in position 1 with an amount of 10.3 tax included and 9.91 tax excluded
@@ -65,10 +65,10 @@ Feature: Check cart to order data copy
     When I select address "address1" in my cart
     When I select carrier "carrier1" in my cart
     When I validate my cart using payment module fake
-    Then current cart order total for products should be 20.6 tax included
-    Then current cart order total for products should be 19.81 tax excluded
-    Then current cart order total discount should be 15.45 tax included
-    Then current cart order total discount should be 14.86 tax excluded
+    Then current cart order total for products should be 20.600000 tax included
+    Then current cart order total for products should be 19.810000 tax excluded
+    Then current cart order total discount should be 15.450000 tax included
+    Then current cart order total discount should be 14.860000 tax excluded
     Then current cart order shipping fees should be 7.0 tax included
     Then current cart order shipping fees should be 7.0 tax excluded
     Then current cart order should have a discount in position 1 with an amount of 10.3 tax included and 9.91 tax excluded
@@ -106,10 +106,10 @@ Feature: Check cart to order data copy
     When I select address "address1" in my cart
     When I select carrier "carrier1" in my cart
     When I validate my cart using payment module fake
-    Then current cart order total for products should be 119.15 tax included
-    Then current cart order total for products should be 114.58 tax excluded
-    Then current cart order total discount should be 59.58 tax included
-    Then current cart order total discount should be 57.29 tax excluded
+    Then current cart order total for products should be 119.150000 tax included
+    Then current cart order total for products should be 114.580000 tax excluded
+    Then current cart order total discount should be 59.580000 tax included
+    Then current cart order total discount should be 57.290000 tax excluded
     Then current cart order shipping fees should be 7.0 tax included
     Then current cart order shipping fees should be 7.0 tax excluded
     Then current cart order should have a discount in position 1 with an amount of 59.58 tax included and 57.29 tax excluded
@@ -149,10 +149,10 @@ Feature: Check cart to order data copy
     When I select address "address1" in my cart
     When I select carrier "carrier1" in my cart
     When I validate my cart using payment module fake
-    Then current cart order total for products should be 119.15 tax included
-    Then current cart order total for products should be 114.58 tax excluded
-    Then current cart order total discount should be 89.36 tax included
-    Then current cart order total discount should be 85.94 tax excluded
+    Then current cart order total for products should be 119.150000 tax included
+    Then current cart order total for products should be 114.580000 tax excluded
+    Then current cart order total discount should be 89.360000 tax included
+    Then current cart order total discount should be 85.940000 tax excluded
     Then current cart order shipping fees should be 7.0 tax included
     Then current cart order shipping fees should be 7.0 tax excluded
     Then current cart order should have a discount in position 1 with an amount of 59.58 tax included and 57.29 tax excluded
@@ -184,10 +184,10 @@ Feature: Check cart to order data copy
     When I select address "address1" in my cart
     When I select carrier "carrier1" in my cart
     When I validate my cart using payment module fake
-    Then current cart order total for products should be 20.6 tax included
-    Then current cart order total for products should be 19.81 tax excluded
-    Then current cart order total discount should be 20.6 tax included
-    Then current cart order total discount should be 19.81 tax excluded
+    Then current cart order total for products should be 20.600000 tax included
+    Then current cart order total for products should be 19.810000 tax excluded
+    Then current cart order total discount should be 20.600000 tax included
+    Then current cart order total discount should be 19.810000 tax excluded
     Then current cart order shipping fees should be 7.0 tax included
     Then current cart order shipping fees should be 7.0 tax excluded
     Then current cart order should have a discount in position 1 with an amount of 20.6 tax included and 19.81 tax excluded
@@ -222,10 +222,10 @@ Feature: Check cart to order data copy
     When I select address "address1" in my cart
     When I select carrier "carrier1" in my cart
     When I validate my cart using payment module fake
-    Then current cart order total for products should be 57.59 tax included
-    Then current cart order total for products should be 55.38 tax excluded
-    Then current cart order total discount should be 36.99 tax included
-    Then current cart order total discount should be 35.57 tax excluded
+    Then current cart order total for products should be 57.590000 tax included
+    Then current cart order total for products should be 55.380000 tax excluded
+    Then current cart order total discount should be 36.990000 tax included
+    Then current cart order total discount should be 35.570000 tax excluded
     Then current cart order shipping fees should be 7.0 tax included
     Then current cart order shipping fees should be 7.0 tax excluded
     Then current cart order should have a discount in position 1 with an amount of 36.99 tax included and 35.57 tax excluded
@@ -260,10 +260,10 @@ Feature: Check cart to order data copy
     When I select address "address1" in my cart
     When I select carrier "carrier1" in my cart
     When I validate my cart using payment module fake
-    Then current cart order total for products should be 94.58 tax included
-    Then current cart order total for products should be 90.94 tax excluded
-    Then current cart order total discount should be 36.99 tax included
-    Then current cart order total discount should be 35.57 tax excluded
+    Then current cart order total for products should be 94.580000 tax included
+    Then current cart order total for products should be 90.940000 tax excluded
+    Then current cart order total discount should be 36.990000 tax included
+    Then current cart order total discount should be 35.570000 tax excluded
     Then current cart order shipping fees should be 7.0 tax included
     Then current cart order shipping fees should be 7.0 tax excluded
     Then current cart order should have a discount in position 1 with an amount of 36.99 tax included and 35.57 tax excluded

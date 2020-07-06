@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2019 PrestaShop and Contributors
+ * 2007-2020 PrestaShop SA and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -19,7 +19,7 @@
  * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA and Contributors
+ * @copyright 2007-2020 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
@@ -28,11 +28,11 @@ namespace PrestaShopBundle\Controller\Admin;
 
 use DateTime;
 use Exception;
-use PrestaShopBundle\Form\Admin\Product\ProductSpecificPrice as SpecificPriceFormType;
-use PrestaShopBundle\Security\Annotation\AdminSecurity;
 use PrestaShop\PrestaShop\Adapter\Product\AdminProductWrapper;
 use PrestaShop\PrestaShop\Core\Foundation\Database\EntityDataInconsistencyException;
 use PrestaShop\PrestaShop\Core\Foundation\Database\EntityNotFoundException;
+use PrestaShopBundle\Form\Admin\Product\ProductSpecificPrice as SpecificPriceFormType;
+use PrestaShopBundle\Security\Annotation\AdminSecurity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

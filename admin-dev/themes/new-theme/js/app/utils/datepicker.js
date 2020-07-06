@@ -1,5 +1,5 @@
 /**
- * 2007-2019 PrestaShop and Contributors
+ * 2007-2020 PrestaShop SA and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -18,13 +18,13 @@
  * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA and Contributors
+ * @copyright 2007-2020 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
 import 'url-polyfill';
 
-const $ = global.$;
+const {$} = window;
 
 const replaceDatePicker = () => {
   const datepickerWidget = $('body').find('.bootstrap-datetimepicker-widget:last');
@@ -62,20 +62,30 @@ const replaceDatePicker = () => {
  * Enable all datepickers.
  */
 const init = function initDatePickers() {
-  $('.datepicker input[type="text"]').datetimepicker(
-    {
-      locale: global.full_language_code,
-      format: 'YYYY-MM-DD',
-    },
-  ).on(
-    'dp.show',
-    replaceDatePicker,
-  ).on(
-    'dp.hide',
-    () => {
-      $(window).off('resize', replaceDatePicker);
-    },
-  );
+  const $datePickers = $('.datepicker input[type="text"]');
+  $.each($datePickers, (i, picker) => {
+    $(picker).datetimepicker(
+      {
+        locale: window.full_language_code,
+        format: $(picker).data('format') ? $(picker).data('format') : 'YYYY-MM-DD',
+        sideBySide: true,
+        icons: {
+          time: 'time',
+          date: 'date',
+          up: 'up',
+          down: 'down',
+        },
+      },
+    ).on(
+      'dp.show',
+      replaceDatePicker,
+    ).on(
+      'dp.hide',
+      () => {
+        $(window).off('resize', replaceDatePicker);
+      },
+    );
+  });
 };
 
 export default init;

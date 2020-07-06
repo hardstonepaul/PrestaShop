@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2019 PrestaShop SA and Contributors
+ * 2007-2020 PrestaShop SA and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -16,21 +16,24 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA and Contributors
+ * @copyright 2007-2020 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
 
 namespace Tests\Unit\PrestaShopBundle\Translation\Loader;
 
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
+use PrestaShopBundle\Translation\Exception\InvalidLegacyTranslationKeyException;
 use PrestaShopBundle\Translation\Loader\LegacyFileLoader;
 use PrestaShopBundle\Translation\Loader\LegacyFileReader;
 use Symfony\Component\Translation\MessageCatalogue;
 
-class LegacyFileLoaderTest extends \PHPUnit_Framework_TestCase
+class LegacyFileLoaderTest extends TestCase
 {
     public function testItInterpretsLegacyTranslationFileData()
     {
@@ -67,11 +70,10 @@ class LegacyFileLoaderTest extends \PHPUnit_Framework_TestCase
         $this->verifyCatalogue($catalogue, $expected);
     }
 
-    /**
-     * @expectedException \PrestaShopBundle\Translation\Exception\InvalidLegacyTranslationKeyException
-     */
     public function testItThrowsAnExceptionIfKeyIsInvalid()
     {
+        $this->expectException(InvalidLegacyTranslationKeyException::class);
+
         $path = '/some/path/to/module/translations/';
         $locale = 'fr-FR';
         $translations = [
@@ -85,7 +87,7 @@ class LegacyFileLoaderTest extends \PHPUnit_Framework_TestCase
     /**
      * @param $translations
      *
-     * @return \PHPUnit_Framework_MockObject_MockObject|LegacyFileReader
+     * @return MockObject|LegacyFileReader
      */
     private function getMockReader($path, $locale, $translations)
     {
